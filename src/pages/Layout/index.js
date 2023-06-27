@@ -17,10 +17,11 @@ const {Header , Sider} = Layout;
 const GeekLayout = ()=>{
 	const {pathname}= useLocation()
 	const navigate = useNavigate()
-	const {userStore,loginStore} = useStore()
+	const {userStore,loginStore,channelStore} = useStore()
 	useEffect(()=>{
 		userStore.getUserInfo()
-	},[userStore])
+		channelStore.loadChannelList()
+	},[userStore,channelStore])
 
 
 	//确定退出
